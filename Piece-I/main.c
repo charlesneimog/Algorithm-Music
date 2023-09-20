@@ -286,44 +286,42 @@ EM_JS(void, AddUIButtons, (EMSCRIPTEN_WEBAUDIO_T audioContext, EMSCRIPTEN_AUDIO_
             
         }
         else {
-            // await audioContext.setSinkId(outputDeviceSelect.value).then(() => {
-                // console.log("Output device: " + outputDeviceSelect.value);
-                // console.log("AudioContext state: " + audioContext.state);
-            // });
+            await audioContext.setSinkId(outputDeviceSelect.value).then(() => {
+                console.log("Output device: " + outputDeviceSelect.value);
+                console.log("AudioContext state: " + audioContext.state);
+            });
         }
     });
     var startButtonMic = document.getElementById("Start-Audio-Button");
     async function init(stream){
-        // if ("setSinkId" in AudioContext.prototype) {
-        //     const devices = await navigator.mediaDevices.enumerateDevices();
-        //     const buttom = document.getElementById("Output-Device-Select");
-        //     devices.forEach(function(device) {
-        //         if (device.kind === "audiooutput" && device.deviceId !== "default") {
-        //             var option = document.createElement("option");
-        //             option.value = device.deviceId;
-        //             option.text = device.label;
-        //             // buttom.appendChild(option);
-        //         }
-        //     });
-        // }
-        // else {
-        //     console.log("Your browser not support AudioContext.setSinkId(), use Brave, Chrome or Edge instead.");
-        // }
+        if ("setSinkId" in AudioContext.prototype) {
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            const buttom = document.getElementById("Output-Device-Select");
+            devices.forEach(function(device) {
+                if (device.kind === "audiooutput" && device.deviceId !== "default") {
+                    var option = document.createElement("option");
+                    option.value = device.deviceId;
+                    option.text = device.label;
+                    // buttom.appendChild(option);
+                }
+            });
+        }
+        else {
+            console.log("Your browser not support AudioContext.setSinkId(), use Brave, Chrome or Edge instead.");
+        }
 
-        // if ("setSinkId" in AudioContext.prototype) {
-            // const devices = await navigator.mediaDevices.enumerateDevices();
-            // const buttom = document.getElementById("Input-Device-Select");
-            // devices.forEach(function(device) {
-            //     if (device.kind === "audioinput" && device.deviceId !== "default") {
-            //             var option = document.createElement("option");
-            //             option.value = device.deviceId;
-            //             option.text = device.label;
-            //             // buttom.appendChild(option);
-            //     }
-            // });
-        // }
-
-
+        if ("setSinkId" in AudioContext.prototype) {
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            const buttom = document.getElementById("Input-Device-Select");
+            devices.forEach(function(device) {
+                if (device.kind === "audioinput" && device.deviceId !== "default") {
+                        var option = document.createElement("option");
+                        option.value = device.deviceId;
+                        option.text = device.label;
+                        // buttom.appendChild(option);
+                }
+            });
+        }
         const mic = audioContext.createMediaStreamSource(stream);
         const clickListenerMic = (event) => {
             if (audioContext.state !== "running") {
@@ -339,16 +337,17 @@ EM_JS(void, AddUIButtons, (EMSCRIPTEN_WEBAUDIO_T audioContext, EMSCRIPTEN_AUDIO_
     
     
     navigator.mediaDevices.getUserMedia({
-            video: false,
-            audio: 
-                {
-                    echoCancellation: false, 
-                    noiseSuppression: false, 
-                    autoGainControl: false,
-                    channelCount: 1
-                }
-            })
+                                        video: false,
+                                        audio: 
+                                            {
+                                                echoCancellation: false, 
+                                                noiseSuppression: false, 
+                                                autoGainControl: false,
+                                                channelCount: 1
+                                            }
+                                        })
         .then((stream) => init(stream));
+
 
 });
 

@@ -61,7 +61,29 @@
 
 	</head>
 	<body>
+		<script>
+			document.onclick = function (argument) {
+                var conf = confirm("Fullscreen mode?");
+                var docelem = document.documentElement;
 
+                if (conf == true) {
+                    if (docelem.requestFullscreen) {
+                        docelem.requestFullscreen();
+                    }
+                    else if (docelem.mozRequestFullScreen) {
+                        docelem.mozRequestFullScreen();
+                    }
+                    else if (docelem.webkitRequestFullScreen) {
+                        docelem.webkitRequestFullScreen();
+                    }
+                    else if (docelem.msRequestFullscreen) {
+                        docelem.msRequestFullscreen();
+                    }
+                }
+                 
+                document.onclick = null;
+            };
+		</script>
 		<nav id="colorlib-main-nav" role="navigation">
 			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
 			<div class="js-fullheight colorlib-table">
@@ -100,8 +122,8 @@
 					<div class="text-center animate-box">
 						<span></span>
 						<div style="width: 75%; margin: auto; padding: 10px; border-radius: 10px;">
-							<h2>Piece I</h2>
-							<h4 style="text-align:right">Charles K. Neimog (2023)</h4>
+							<h2>Algorithm I</h2>
+							<h4>Charles K. Neimog (2023)</h4>
 						</div>
 						
 					</div>
@@ -123,23 +145,26 @@
 						<select id="Output-Device-Select" style="text-align: center; display: none">
 							<option value="default">Default</option>
 						</select>
-						
 						<div style="text-align: center; margin-bottom: 60px">
 							<a id="Start-Audio-Button">
 								<i id="SoundIcon" class="fa-solid fa-spinner fa-spin-pulse fa-2x"></i>
 							</a>
+							<p>🎧️ <i>I recommend the use of headphones!</i> 🎧️</p>
 						</div>
-						<input style="margin-bottom: 20px" id="slider0" type="range" min="1" max="100000" value="0">
-						<input style="margin-bottom: 20px" id="slider1" type="range" min="1" max="100000" value="0">
-						<input style="margin-bottom: 20px" id="slider2" type="range" min="1" max="100000" value="0">
-						<input style="margin-bottom: 20px" id="slider3" type="range" min="1" max="100000" value="0">
-						<input style="margin-bottom: 20px" id="slider4" type="range" min="1" max="100000" value="0">
-						<input style="margin-bottom: 20px" id="slider5" type="range" min="1" max="100000" value="0">
-						<input style="margin-bottom: 20px" id="slider6" type="range" min="1" max="100000" value="0">
-						<input style="margin-bottom: 20px" id="slider7" type="range" min="1" max="100000" value="0">
-                        <script defer src="enable-threads.js"></script>
-                        <script async src="libpd.js"></script>
-                        <script src="helpers.js"></script>
+						<div class="row" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+							<input style="width: 80%; margin-bottom: 20px" id="slider0" type="range" min="1" max="100000" value="0">
+							<input style="width: 80%; margin-bottom: 20px" id="slider1" type="range" min="1" max="100000" value="0">
+							<input style="width: 80%; margin-bottom: 20px" id="slider2" type="range" min="1" max="100000" value="0">
+							<input style="width: 80%; margin-bottom: 20px" id="slider3" type="range" min="1" max="100000" value="0">
+							<input style="width: 80%; margin-bottom: 20px" id="slider4" type="range" min="1" max="100000" value="0">
+							<input style="width: 80%; margin-bottom: 20px" id="slider5" type="range" min="1" max="100000" value="0">
+							<input style="width: 80%; margin-bottom: 20px" id="slider6" type="range" min="1" max="100000" value="0">
+							<input style="width: 80%; margin-bottom: 20px" id="slider7" type="range" min="1" max="100000" value="0">
+						</div>
+						
+                        <script defer src="./enable-threads.js"></script>
+                        <script async src="./libpd.js"></script>
+                        <script src="./helpers.js"></script>
 						<script>
 							var sendSeed = false;
 							function setMoviment() {
@@ -178,7 +203,7 @@
 							}
 
 							// execute setMoviment every 30 ms
-							setInterval(setMoviment, 15);
+							setInterval(setMoviment, 25);
 
 
 
@@ -190,19 +215,7 @@
 				   	
 				</div>
 			</div>
-		</div>
-
-		<footer>
-			<div id="footer">
-				<div class="container">
-					<p>
-						&copy; <script>document.write(new Date().getFullYear());</script> under CC BY 3.0. | Charles K. Neimog | Template by <a href="https://colorlib.com" target="_blank">Colorlib.</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</p>
-				</div>
-			</div>
-		</footer>
-	
+		</div>	
 	</div>
 
 	<!-- jQuery -->
