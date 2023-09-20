@@ -61,7 +61,31 @@
 
 	</head>
 	<body>
+		<script>
+			document.onclick = function (argument) {
+                var conf = confirm("Fullscreen mode?");
+                var docelem = document.documentElement;
 
+                if (conf == true) {
+                    if (docelem.requestFullscreen) {
+                        docelem.requestFullscreen();
+                    }
+                    else if (docelem.mozRequestFullScreen) {
+                        docelem.mozRequestFullScreen();
+                    }
+                    else if (docelem.webkitRequestFullScreen) {
+                        docelem.webkitRequestFullScreen();
+                    }
+                    else if (docelem.msRequestFullscreen) {
+                        docelem.msRequestFullscreen();
+                    }
+                }
+                document.getElementById("InstrumentTitle").innerHTML = "Flute"; 
+                updateScore(0);
+                FullScreenMode = true;  
+                document.onclick = null;
+            };
+		</script>
 		<nav id="colorlib-main-nav" role="navigation">
 			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
 			<div class="js-fullheight colorlib-table">
