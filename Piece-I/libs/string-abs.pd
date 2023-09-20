@@ -1,4 +1,4 @@
-#N canvas 0 32 1920 977 8;
+#N canvas -61 -23 1920 977 8;
 #X obj 122 130 f;
 #X obj 5 226 sel 1;
 #X obj 5 53 int;
@@ -97,6 +97,7 @@
 #X obj 3 247 t b b b;
 #X obj 355 195 f;
 #X obj 202 239 t b b;
+#X obj 283 9 r pdseed;
 #X connect 0 0 4 1;
 #X connect 0 0 11 1;
 #X connect 1 0 95 0;
@@ -217,3 +218,12 @@
 #X connect 96 0 92 0;
 #X connect 97 0 14 0;
 #X connect 97 1 96 0;
+#X connect 98 0 42 0;
+#X connect 98 0 90 0;
+#X connect 98 0 81 0;
+#X connect 98 0 31 0;
+#X connect 98 0 59 0;
+#X connect 98 0 51 0;
+#X connect 98 0 46 0;
+#X connect 98 0 34 0;
+#X connect 98 0 41 0;

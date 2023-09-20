@@ -23,8 +23,8 @@ int samplerate = 48000;
 // =====================================
 pthread_mutex_t WriteReadMutex = PTHREAD_MUTEX_INITIALIZER;
 
-char* HTML_IDS[] = {};
-int HTML_IDS_SIZE = 0;
+char* HTML_IDS[] = {"ui_range1", "ui_range2", "ui_range3", "ui_range4", "ui_range5", "ui_range6", "ui_range7", "ui_range0"};
+int HTML_IDS_SIZE = 8;
 
 typedef struct pdItem{
     const char*     receiverID;
