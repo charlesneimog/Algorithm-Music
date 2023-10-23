@@ -19,6 +19,11 @@
 #include <emscripten/webaudio.h> /* WebAudio API  */
 #include <z_libpd.h>             /* libpd */
 
+void message_setup(void);
+void routetype_setup(void);
+void selector_setup(void);
+void plaits_tilde_setup(void);
+void earplug_tilde_setup(void);
 void wrap2_setup(void);
 void loadbanger_setup(void);
 void slice_setup(void);
@@ -313,6 +318,11 @@ void AudioWorkletProcessorCreated(EMSCRIPTEN_WEBAUDIO_T audioContext,
   libpd_set_printhook(pdprint);
   libpd_init();
 
+  message_setup();
+  routetype_setup();
+  selector_setup();
+  plaits_tilde_setup();
+  earplug_tilde_setup();
   wrap2_setup();
   loadbanger_setup();
   slice_setup();

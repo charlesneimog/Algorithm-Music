@@ -37,8 +37,8 @@
 #X msg 39 25 model 11;
 #X obj 39 3 loadbang;
 #X obj 6 214 outlet~;
-#X obj 152 113 else/plaits~ -trigger, f 27;
-#X obj 6 113 else/plaits~ -trigger, f 27;
+#X obj 152 113 plaits~ -trigger, f 27;
+#X obj 6 113 plaits~ -trigger, f 27;
 #X connect 0 0 1 0;
 #X connect 1 0 3 0;
 #X connect 2 0 1 1;
@@ -62,7 +62,7 @@
 #X connect 14 1 0 1;
 #X restore 5 253 pd PLAITS;
 #X f 15;
-#N canvas 582 93 1022 821 attack 1;
+#N canvas 582 93 1022 821 attack 0;
 #X obj 21 220 sel 1;
 #X obj 21 201 change;
 #X obj 58 260 f;
@@ -312,7 +312,7 @@
 #X obj 384 47 expr random(0 \, 98);
 #X obj 208 379 r mynumber-\$0;
 #X obj 208 400 sel 1;
-#X obj 208 421 1;
+#X msg 208 421 2;
 #X connect 0 0 25 1;
 #X connect 0 0 59 1;
 #X connect 1 0 69 0;
