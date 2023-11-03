@@ -1,6 +1,6 @@
-#define GIT_SHA "-128-NOTFOUND"
-#define GIT_DATE "-128-NOTFOUND"
-#define GIT_TAG "-128-NOTFOUND"
+#define GIT_SHA "392656b"
+#define GIT_DATE "2023-10-18"
+#define GIT_TAG "392656b"
 
 const char* pmpd_sha()
 {

@@ -24,12 +24,12 @@ void routetype_setup(void);
 void selector_setup(void);
 void plaits_tilde_setup(void);
 void earplug_tilde_setup(void);
-void wrap2_setup(void);
-void loadbanger_setup(void);
-void slice_setup(void);
 void router_setup(void);
 void lb_setup(void);
+void wrap2_setup(void);
 void args_setup(void);
+void loadbanger_setup(void);
+void slice_setup(void);
 void spread_setup(void);
 void loop_setup(void);
 void mass_setup(void);
@@ -323,12 +323,12 @@ void AudioWorkletProcessorCreated(EMSCRIPTEN_WEBAUDIO_T audioContext,
   selector_setup();
   plaits_tilde_setup();
   earplug_tilde_setup();
-  wrap2_setup();
-  loadbanger_setup();
-  slice_setup();
   router_setup();
   lb_setup();
+  wrap2_setup();
   args_setup();
+  loadbanger_setup();
+  slice_setup();
   spread_setup();
   loop_setup();
   mass_setup();
@@ -349,6 +349,7 @@ void AudioWorkletProcessorCreated(EMSCRIPTEN_WEBAUDIO_T audioContext,
     return;
   }
   EM_ASM_({ JS_LoadFinished(); });
+  printf("Block size: %d\n", libpd_blocksize());
 }
 
 // ========================================
